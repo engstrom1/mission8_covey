@@ -17,8 +17,13 @@ namespace mission8_covey.Controllers
         {
             _logger = logger;
         }
+        
+        public IActionResult Quandrants()
+        {
+            return View();
+        }
 
-        public IActionResult Index()
+        public IActionResult Tasks()
         {
             return View();
         }
