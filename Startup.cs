@@ -30,7 +30,7 @@ namespace mission8_covey
             //services.AddDbContext<nameOfContext>(options =>
             {
                 OptionsBuilderConfigurationExtensions.UseSqlite(Configuration["ConnectionStrings:nameOfConnection"]);
-            });
+            };
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
