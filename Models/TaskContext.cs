@@ -16,7 +16,12 @@ namespace mission8_covey.Models
         }
 
         public DbSet<TaskResponse> Responses { get; set; }
-        
+
+        internal void Update(TaskResponse mfr)
+        {
+            throw new NotImplementedException();
+        }
+
         //protected override void OnModelCreating(ModelBuilder mb)
         //{
         //    mb.Entity<TaskResponse>().Has
