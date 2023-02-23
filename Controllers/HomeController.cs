@@ -23,13 +23,12 @@ namespace mission8_covey.Controllers
        
         
         // quandrants view
-        public IActionResult Quandrants()
+        public IActionResult Quadrants()
         {
             var tasks = taskContext.Responses
                 .OrderBy(x => x.Task)
-                .Where(x => x.completed == false)
                 .ToList();
-            return View();
+            return View(tasks);
         }
 
         // tasks get view -- for adding new tasks 
@@ -65,7 +64,7 @@ namespace mission8_covey.Controllers
 
             var taskResponse = taskContext.Responses.Single(x => x.TaskId == taskId);
 
-            return View("Quandrants", taskResponse);
+            return View("Quadrants", taskResponse);
         }
 
         [HttpPost]
@@ -73,7 +72,7 @@ namespace mission8_covey.Controllers
         {
             taskContext.Update(mfr);
             taskContext.SaveChanges();
-            return RedirectToAction("Quandrants");
+            return RedirectToAction("Quadrants");
         }
 
         [HttpGet]
@@ -90,7 +89,7 @@ namespace mission8_covey.Controllers
             taskContext.Responses.Remove(mfr);
             taskContext.SaveChanges();
 
-            return RedirectToAction("Quandrants");
+            return RedirectToAction("Quadrants");
         }
 
     }
