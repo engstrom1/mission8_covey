@@ -9,62 +9,62 @@
     </div>
     
     <div class="row">
-        <div class="col-lg-2 col-sm-12 table-bordered"></div>
-        <div class="col-lg-5 col-sm-12 table-bordered">
+        <div class="col-lg-2 col-sm-12 border"></div>
+        <div class="col-lg-5 col-sm-12 border text-center align-middle">
             <h5>Urgent</h5>
         </div>
-        <div class="col-lg-5 col-sm-12 table-bordered">
+        <div class="col-lg-5 col-sm-12 border text-center align-middle">
             <h5>Not Urgent</h5>
         </div>
     </div>
 
     <div class="row">
-        <div class="col-lg-2 col-sm-12 table-bordered">
+        <div class="col-lg-2 col-sm-12 border text-center align-middle">
             <h5>Important</h5>
         </div>
-        <div class="col-lg-5 col-sm-12 table-bordered">
+        <div class="col-lg-5 col-sm-12 border text-center">
             <h3>Quadrant 1</h3>
             @foreach (var x in Model)
             {
                 if (x.quadrant == 1 & x.completed == false)
                 {
-                    <p>@x.Task  |  @x.dueDate</p>
+                    <p>@x.Task  |   @x.dueDate  <a asp-controller="Home" asp-action="Delete" asp-route-movieid="@x.TaskId" class=" btn btn-danger">Delete</a></p>
                 }
             }
         </div>
-        <div class="col-lg-5 col-sm-12 table-bordered">
+        <div class="col-lg-5 col-sm-12 border text-center">
             <h3>Quadrant 2</h3>
             @foreach (var x in Model)
             {
                 if (x.quadrant == 2 & x.completed == false)
                 {
-                    <p>@x.Task  |  @x.dueDate</p>
+                    <p>@x.Task  |   @x.dueDate  <a asp-controller="Home" asp-action="Delete" asp-route-movieid="@x.TaskId" class=" btn btn-danger">Delete</a></p>
                 }
             }
         </div>
     </div>
 
     <div class="row">
-        <div class="col-lg-2 col-sm-12 table-bordered">
+        <div class="col-lg-2 col-sm-12 border text-center align-middle">
             <h5>Not Important</h5>
         </div>
-        <div class="col-lg-5 col-sm-12 table-bordered">
+        <div class="col-lg-5 col-sm-12 border text-center">
             <h3>Quadrant 3</h3>
             @foreach (var x in Model)
             {
                 if (x.quadrant == 3 & x.completed == false)
                 {
-                    <p>@x.Task  |  @x.dueDate</p>
+        <p>@x.Task  |   @x.dueDate  <a asp-controller="Home" asp-action="Delete" asp-route-movieid="@x.TaskId" class=" btn btn-danger">Delete</a></p>
                 }
             }
         </div>
-        <div class="col-lg-5 col-sm-12 table-bordered">
+        <div class="col-lg-5 col-sm-12 border text-center">
             <h3>Quadrant 4</h3>
             @foreach (var x in Model)
             {
                 if (x.quadrant == 4 & x.completed == false)
                 {
-                    <p>@x.Task  |  @x.dueDate</p>
+        <p>@x.Task  |   @x.dueDate  <a asp-controller="Home" asp-action="Delete" asp-route-movieid="@x.TaskId" class=" btn btn-danger">Delete</a></p>
                 }
             }
         </div>
