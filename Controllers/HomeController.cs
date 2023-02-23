@@ -52,19 +52,19 @@ namespace mission8_covey.Controllers
             }
             else
             {
-                //ViewBag.Category = taskContext.Category.ToList();
+                ViewBag.Category = taskContext.Categories.ToList();
                 return View();
             }
         }
 
         [HttpGet]
-        public IActionResult Edit(int taskId)
+        public IActionResult Edit(int taskid)
         {
-            //ViewBag.Categories = taskContext.Category.ToList();
+            ViewBag.Category = taskContext.Categories.ToList();
 
-            var taskResponse = taskContext.Responses.Single(x => x.TaskId == taskId);
+            var taskResponse = taskContext.Responses.Single(x => x.TaskId == taskid);
 
-            return View("Quadrants", taskResponse);
+            return View("Tasks", taskResponse);
         }
 
         [HttpPost]

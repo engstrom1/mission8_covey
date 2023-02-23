@@ -18,10 +18,10 @@ namespace mission8_covey.Models
         public DbSet<TaskResponse> Responses { get; set; }
         public DbSet<Category> Categories { get; set; } // lets us reference categories in the controller
 
-        internal void Update(TaskResponse mfr)
-        {
-            throw new NotImplementedException();
-        }
+        //internal void Update(TaskResponse mfr)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
         protected override void OnModelCreating(ModelBuilder mb)
         {
