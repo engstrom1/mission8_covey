@@ -36,7 +36,7 @@ namespace mission8_covey.Controllers
         [HttpGet]
         public IActionResult Tasks()
         {
-            //ViewBag.Category = taskContext.Category.ToList();
+            ViewBag.Category = taskContext.Categories.ToList();
             return View();
         }
 

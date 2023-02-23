@@ -19,16 +19,16 @@
     <tbody>
         @foreach (var x in Model)
         {
-            <tr>
+        <tr>
 
-                <td>@x.Task</td>
-                <td>@x.dueDate</td>
-                <td>@x.quadrant</td>
-                <td>@x.completed</td>
-                <td>@x.Category.CategoryName</td>
+            <td>@x.Task</td>
+            <td>@x.dueDate</td>
+            <td>@x.quadrant</td>
+            <td>@x.completed</td>
+            <td>@x.Category.CategoryName</td>
 
-                <td><a asp-controller="Home" asp-action="Edit" asp-route-categoryid="@x.TaskID">Edit</a></td>
-            </tr>
+            <td><a asp-controller="Home" asp-action="Edit" asp-route-categoryid="@x.TaskId">Edit</a></td>
+        </tr>
         }
     </tbody>
 </table>
