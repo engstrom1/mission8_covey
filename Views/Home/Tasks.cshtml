@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewData["Title"] = "My Tasks";
+}
+@model mission8_covey.Models.TaskResponse;
+<div class="text-center">
+    @*Creates the form for a user to enter a new movie into the database*@
+    <h1 class="display-4">Edit Tasks</h1>
+    <form method="post">
+        <div asp-validation-summary="All"></div>
+
+        @*creates drop down list for categories, identifying each category by the categoryid, but displaying category names*@
+        <label asp-for="CategoryID">Category: </label>
+        <select asp-for="CategoryID">
+            <option value="">Select a Category</option>
+            @foreach (Category c in ViewBag.Category)
+            {
+                <option value="@c.CategoryID">@c.CategoryName</option>
+            }
+        </select><br />
+
+        <label asp-for="Task">Task: </label>
+        <input asp-for="Task" /><br />
+
+        <label asp-for="dueDate">Date Due: </label>
+        <input asp-for="dueDate" /><br />
+
+        <label asp-for="quadrant">Quadrant: </label>
+        <input asp-for="quadrant" /><br />
+
+        <label asp-for="completed">Completed?: </label>
+        <select asp-for="completed">
+            <option value="True">Yes</option>
+            <option value="False">No</option>
+        </select><br />
+        @*submits the info entered into the form into the model, calling the post method*@
+        <button type="submit">Confirm Task</button>
+    </form>
+</div>

@@ -12,26 +12,85 @@ namespace mission8_covey.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        // context file for Task Context
+        private TaskContext taskContext { get; set; }
+        // home controller func with task context added
+        public HomeController(ILogger<HomeController> logger, TaskContext x)
         {
             _logger = logger;
+            taskContext = x;
+        }
+       
+        
+        // quandrants view
+        public IActionResult Quadrants()
+        {
+            var tasks = taskContext.Responses
+                .OrderBy(x => x.Task)
+                .ToList();
+            return View(tasks);
         }
 
-        public IActionResult Index()
+        // tasks get view -- for adding new tasks 
+        [HttpGet]
+        public IActionResult Tasks()
         {
+            ViewBag.Category = taskContext.Categories.ToList();
             return View();
         }
 
-        public IActionResult Privacy()
+        // tasks post view -- for adding new tasks 
+        [HttpPost]
+        public IActionResult Tasks(TaskResponse tr)
         {
-            return View();
+            if (ModelState.IsValid)
+            {
+                taskContext.Add(tr);
+                taskContext.SaveChanges();
+
+                return View(tr);
+            }
+            else
+            {
+                ViewBag.Category = taskContext.Categories.ToList();
+                return View();
+            }
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        [HttpGet]
+        public IActionResult Edit(int taskid)
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            ViewBag.Category = taskContext.Categories.ToList();
+
+            var taskResponse = taskContext.Responses.Single(x => x.TaskId == taskid);
+
+            return View("Tasks", taskResponse);
         }
+
+        [HttpPost]
+        public IActionResult Edit(TaskResponse mfr)
+        {
+            taskContext.Update(mfr);
+            taskContext.SaveChanges();
+            return RedirectToAction("Quadrants");
+        }
+
+        [HttpGet]
+        public IActionResult Delete(int taskId)
+        {
+            var taskResponse = taskContext.Responses.Single(x => x.TaskId == taskId);
+
+            return View(taskResponse);
+        }
+
+        [HttpPost]
+        public IActionResult Delete(TaskResponse mfr)
+        {
+            taskContext.Responses.Remove(mfr);
+            taskContext.SaveChanges();
+
+            return RedirectToAction("Quadrants");
+        }
+
     }
 }
