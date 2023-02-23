@@ -3,26 +3,26 @@
 }
 @model List<TaskResponse>;
 
-<div class="container table-bordered">
-    <div class="row">
+<div class="container table-bordered" style="background-color:mintcream">
+    <div class="text-center">
         <h1>Steven Covey's Time Management Matrix</h1>
     </div>
     
     <div class="row">
-        <div class="col-lg-2 col-sm-12"></div>
-        <div class="col-lg-5 col-sm-12">
+        <div class="col-lg-2 col-sm-12 table-bordered"></div>
+        <div class="col-lg-5 col-sm-12 table-bordered">
             <h5>Urgent</h5>
         </div>
-        <div class="col-lg-5 col-sm-12">
+        <div class="col-lg-5 col-sm-12 table-bordered">
             <h5>Not Urgent</h5>
         </div>
     </div>
 
     <div class="row">
-        <div class="col-lg-2 col-sm-12">
+        <div class="col-lg-2 col-sm-12 table-bordered">
             <h5>Important</h5>
         </div>
-        <div class="col-lg-5 col-sm-12">
+        <div class="col-lg-5 col-sm-12 table-bordered">
             <h3>Quadrant 1</h3>
             @foreach (var x in Model)
             {
@@ -32,7 +32,7 @@
                 }
             }
         </div>
-        <div class="col-lg-5 col-sm-12">
+        <div class="col-lg-5 col-sm-12 table-bordered">
             <h3>Quadrant 2</h3>
             @foreach (var x in Model)
             {
@@ -45,10 +45,10 @@
     </div>
 
     <div class="row">
-        <div class="col-lg-2 col-sm-12">
+        <div class="col-lg-2 col-sm-12 table-bordered">
             <h5>Not Important</h5>
         </div>
-        <div class="col-lg-5 col-sm-12">
+        <div class="col-lg-5 col-sm-12 table-bordered">
             <h3>Quadrant 3</h3>
             @foreach (var x in Model)
             {
@@ -58,7 +58,7 @@
                 }
             }
         </div>
-        <div class="col-lg-5 col-sm-12">
+        <div class="col-lg-5 col-sm-12 table-bordered">
             <h3>Quadrant 4</h3>
             @foreach (var x in Model)
             {
