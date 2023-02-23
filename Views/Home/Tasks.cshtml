@@ -2,33 +2,38 @@
 @{
     ViewData["Title"] = "My Tasks";
 }
-@model List<TaskResponse>;
-<table class="table table-bordered table-striped">
-    <thead class="font-weight-bold">
-        <tr>
+@model mission8_covey.Models.TaskResponse;
+<div class="text-center">
+    @*Creates the form for a user to enter a new movie into the database*@
+    <h1 class="display-4">Edit Tasks</h1>
+    <form method="post">
+        <div asp-validation-summary="All"></div>
 
-            <td>Task</td>
-            <td>Date Due</td>
-            <td>Quadrant</td>
-            <td>Completed</td>
-            <td>Category</td>
+        @*creates drop down list for categories, identifying each category by the categoryid, but displaying category names*@
+        <label asp-for="CategoryID">Category: </label>
+        <select asp-for="CategoryID">
+            <option value="">Select a Category</option>
+            @foreach (Category c in ViewBag.Category)
+            {
+                <option value="@c.CategoryID">@c.CategoryName</option>
+            }
+        </select><br />
 
-        </tr>
-    </thead>
+        <label asp-for="Task">Task: </label>
+        <input asp-for="Task" /><br />
 
-    <tbody>
-        @foreach (var x in Model)
-        {
-        <tr>
+        <label asp-for="dueDate">Date Due: </label>
+        <input asp-for="dueDate" /><br />
 
-            <td>@x.Task</td>
-            <td>@x.dueDate</td>
-            <td>@x.quadrant</td>
-            <td>@x.completed</td>
-            <td>@x.Category.CategoryName</td>
+        <label asp-for="quadrant">Quadrant: </label>
+        <input asp-for="quadrant" /><br />
 
-            <td><a asp-controller="Home" asp-action="Edit" asp-route-categoryid="@x.TaskId">Edit</a></td>
-        </tr>
-        }
-    </tbody>
-</table>
+        <label asp-for="completed">Completed?: </label>
+        <select asp-for="completed">
+            <option value="True">Yes</option>
+            <option value="False">No</option>
+        </select><br />
+        @*submits the info entered into the form into the model, calling the post method*@
+        <button type="submit">Confirm Task</button>
+    </form>
+</div>
