@@ -31,6 +31,7 @@
                 format is reused below in the next columns and rows*@
             @foreach (var x in Model)
             {
+                @*checks to see if the entry is a completed item. If so, it won't be displayed*@
                 if (x.quadrant == 1 & x.completed == false)
                 {
                     <p>@x.Task    >>    @x.dueDate  <a asp-controller="Home" asp-action="Edit" asp-route-taskid="@x.TaskId" class="btn btn-outline-info">Edit</a> <a asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.TaskId" class=" btn btn-danger">Delete</a></p>
