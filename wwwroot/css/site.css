@@ -59,6 +59,11 @@ button.accept-policy {
   font-size: 1rem;
   line-height: inherit;
 }
+form {
+    margin: 0 auto;
+    width: 400px;
+    text-align: center;
+}
 
 /* Sticky footer styles
 -------------------------------------------------- */
@@ -73,13 +78,19 @@ body {
     background-color: #6279b8ff
 }
 .footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    line-height: 60px; /* Vertically center the text there */
+    background-color: #8ea4d2ff;
+    text-align: center
 }
-
+img {
+    width: 80%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 .vertical-text {
     font-size: 25px;
     word-break: break-word;
@@ -94,8 +105,8 @@ body {
     transform: translate3d(-50%, -50%, 0);
 }
 /* CSS HEX */
---vista-blue: #8ea4d2ff;
+/*--vista-blue: #8ea4d2ff;
 --glaucous: #6279b8ff;
 --yinmn-blue: #49516fff;
 --hookers-green: #496f5dff;
---shamrock-green: #4c9f70ff;
+--shamrock-green: #4c9f70ff;*/
