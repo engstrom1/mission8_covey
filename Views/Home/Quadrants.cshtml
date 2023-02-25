@@ -1,72 +1,81 @@
 ﻿@{
     ViewData["Title"] = "Quadrants";
 }
+@*pulls in the model data for use in the view*@
 @model List<TaskResponse>;
-
-<div class="container table-bordered" style="background-color:mintcream">
+@*specifies a container with a border, one that allows for a scroll bar when the screen is smaller*@
+<div class="container table-bordered quadbo table-responsive-sm" style="background-color:mintcream">
     <div class="text-center">
         <h1>Steven Covey's Time Management Matrix</h1>
     </div>
 
+    @*divides the page into three columns*@
     <div class="row">
         <div class="col-lg-2 col-sm-12 border"></div>
-        <div class="col-lg-5 col-sm-12 border text-center align-middle">
-            <h5>Urgent</h5>
+        <div class="col-lg-5 col-sm-12 border text-center text-secondary">
+            <h6>Urgent</h6>
         </div>
-        <div class="col-lg-5 col-sm-12 border text-center align-middle">
-            <h5>Not Urgent</h5>
+        <div class="col-lg-5 col-sm-12 border text-center text-secondary">
+            <h6>Not Urgent</h6>
         </div>
     </div>
 
+    @*another row with 3 columns, quadrants 1 and 2. This one contains data from the model*@
     <div class="row">
-        <div class="col-lg-2 col-sm-12 border text-center align-middle">
-            <h5>Important</h5>
+        <div class="col-lg-2 col-sm-12 border text-center text-secondary ">
+            <h6>Important</h6>
         </div>
         <div class="col-lg-5 col-sm-12 border text-center">
-            <h3>Quadrant 1</h3>
+            <h4>Quadrant 1</h4>
+            @*looks through the model, and pulls out the task and due date for each entry. Also includes edit and delete buttons
+                format is reused below in the next columns and rows*@
             @foreach (var x in Model)
             {
+                @*checks to see if the entry is a completed item. If so, it won't be displayed*@
                 if (x.quadrant == 1 & x.completed == false)
                 {
-                    <p>@x.Task  |   @x.dueDate  <a asp-controller="Home" asp-action="Edit" asp-route-taskid="@x.TaskId" class="btn btn-outline-warning">Edit</a> <a asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.TaskId" class=" btn btn-danger">Delete</a></p>
+                    <p>@x.Task    >>    @x.dueDate  <a asp-controller="Home" asp-action="Edit" asp-route-taskid="@x.TaskId" class="btn btn-outline-info">Edit</a> <a asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.TaskId" class=" btn btn-danger">Delete</a></p>
                 }
             }
         </div>
-        <div class="col-lg-5 col-sm-12 border text-center">
-            <h3>Quadrant 2</h3>
+        <div class="col-lg-5 border text-center">
+            <h4>Quadrant 2</h4>
             @foreach (var x in Model)
             {
                 if (x.quadrant == 2 & x.completed == false)
                 {
-                    <p>@x.Task  |   @x.dueDate  <a asp-controller="Home" asp-action="Edit" asp-route-taskid="@x.TaskId" class="btn btn-outline-warning">Edit</a> <a asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.TaskId" class=" btn btn-danger">Delete</a></p>
+                    <p>@x.Task    >>    @x.dueDate  <a asp-controller="Home" asp-action="Edit" asp-route-taskid="@x.TaskId" class="btn btn-outline-info">Edit</a> <a asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.TaskId" class=" btn btn-danger">Delete</a></p>
                 }
             }
         </div>
     </div>
 
+    @*another row with 3 columns, quadrants 3 and 4*@
     <div class="row">
-        <div class="col-lg-2 col-sm-12 border text-center align-middle">
-            <h5>Not Important</h5>
+        <div class="col-lg-2 border text-center text-secondary">
+            <h6>Not Important</h6>
         </div>
-        <div class="col-lg-5 col-sm-12 border text-center">
-            <h3>Quadrant 3</h3>
+        <div class="col-lg-5 border text-center">
+            <h4>Quadrant 3</h4>
             @foreach (var x in Model)
             {
                 if (x.quadrant == 3 & x.completed == false)
                 {
-                    <p>@x.Task  |   @x.dueDate  <a asp-controller="Home" asp-action="Edit" asp-route-taskid="@x.TaskId" class="btn btn-outline-warning">Edit</a> <a asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.TaskId" class=" btn btn-danger">Delete</a></p>
+                    <p>@x.Task    >>    @x.dueDate  <a asp-controller="Home" asp-action="Edit" asp-route-taskid="@x.TaskId" class="btn btn-outline-info">Edit</a> <a asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.TaskId" class=" btn btn-danger">Delete</a></p>
                 }
             }
         </div>
-        <div class="col-lg-5 col-sm-12 border text-center">
-            <h3>Quadrant 4</h3>
+        <div class="col-lg-5 border text-center">
+            <h4>Quadrant 4</h4>
             @foreach (var x in Model)
             {
                 if (x.quadrant == 4 & x.completed == false)
                 {
-                <p>@x.Task  |   @x.dueDate  <a asp-controller="Home" asp-action="Edit" asp-route-taskid="@x.TaskId" class="btn btn-outline-warning">Edit</a> <a asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.TaskId" class=" btn btn-danger">Delete</a></p>
+                    <p>@x.Task    >>    @x.dueDate  <a asp-controller="Home" asp-action="Edit" asp-route-taskid="@x.TaskId" class="btn btn-outline-info">Edit</a> <a asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.TaskId" class=" btn btn-danger">Delete</a></p>
                 }
             }
         </div>
     </div>
 </div>
+<br />
+<br />
