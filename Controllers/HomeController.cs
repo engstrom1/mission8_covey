@@ -59,6 +59,7 @@ namespace mission8_covey.Controllers
             }
         }
 
+        // edit controller that inputs the task to the form for editing 
         [HttpGet]
         public IActionResult Edit(int taskid)
         {
@@ -69,6 +70,7 @@ namespace mission8_covey.Controllers
             return View("Tasks", taskResponse);
         }
 
+        // edit post -- saves new version to database
         [HttpPost]
         public IActionResult Edit(TaskResponse mfr)
         {
@@ -77,6 +79,7 @@ namespace mission8_covey.Controllers
             return RedirectToAction("Quadrants");
         }
 
+        // returns confirmation of deletion 
         [HttpGet]
         public IActionResult Delete(int taskId)
         {
@@ -85,6 +88,7 @@ namespace mission8_covey.Controllers
             return View(taskResponse);
         }
 
+        // delete post -- removes task
         [HttpPost]
         public IActionResult Delete(TaskResponse mfr)
         {
