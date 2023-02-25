@@ -47,8 +47,10 @@ namespace mission8_covey.Controllers
             {
                 taskContext.Add(tr);
                 taskContext.SaveChanges();
+                ViewBag.Category = taskContext.Categories.ToList();
 
-                return View(tr);
+
+                return RedirectToAction();
             }
             else
             {
